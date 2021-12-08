@@ -62,7 +62,7 @@
                     app:egLegendTextSize="15sp"
                     app:egLegendColor="@color/white"
                     app:egUsePieRotation="true"
-                    app:egValueTextSize="12sp"
+                    app:egValueTextSize="15sp"
                     app:egValueTextColor="@color/black">
 
                 </org.eazegraph.lib.charts.PieChart>

@@ -1,17 +1,26 @@
 package com.example.appcovid;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
+
 import com.hbb20.CountryCodePicker;
+
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;
+
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private List<ModelClass> modelClassList;
     private List<ModelClass> modelClassList2;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mPieChart = findViewById(R.id.piechart);
         modelClassList = new ArrayList<>();
         modelClassList2 = new ArrayList<>();
+
 
         ApiUtilities.getAPIInterface().getcountrydata().enqueue(new Callback<List<ModelClass>>() {
             @Override
@@ -116,9 +127,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         mPieChart.clearChart();
         mPieChart.addPieSlice(new PieModel("Total", total, Color.parseColor("#FFB701")));
-        mPieChart.addPieSlice(new PieModel("Active", total, Color.parseColor("#FF4CAF50")));
-        mPieChart.addPieSlice(new PieModel("Recovered", total, Color.parseColor("#38ACCD")));
-        mPieChart.addPieSlice(new PieModel("Deaths", total, Color.parseColor("#F55c47")));
+        mPieChart.addPieSlice(new PieModel("Active", active, Color.parseColor("#FF4CAF50")));
+        mPieChart.addPieSlice(new PieModel("Recovered", recovered, Color.parseColor("#38ACCD")));
+        mPieChart.addPieSlice(new PieModel("Deaths", deaths, Color.parseColor("#F55c47")));
         mPieChart.startAnimation();
     }
 
