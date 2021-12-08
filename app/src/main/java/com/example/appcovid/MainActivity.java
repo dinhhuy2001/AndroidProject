@@ -142,9 +142,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         mPieChart.clearChart();
         mPieChart.addPieSlice(new PieModel("Total", total, Color.parseColor("#FFB701")));
-        mPieChart.addPieSlice(new PieModel("Active", total, Color.parseColor("#FF4CAF50")));
-        mPieChart.addPieSlice(new PieModel("Recovered", total, Color.parseColor("#38ACCD")));
-        mPieChart.addPieSlice(new PieModel("Deaths", total, Color.parseColor("#F55c47")));
+        mPieChart.addPieSlice(new PieModel("Active", active, Color.parseColor("#FF4CAF50")));
+        mPieChart.addPieSlice(new PieModel("Recovered", recovered, Color.parseColor("#38ACCD")));
+        mPieChart.addPieSlice(new PieModel("Deaths", deaths, Color.parseColor("#F55c47")));
         mPieChart.startAnimation();
     }
 
